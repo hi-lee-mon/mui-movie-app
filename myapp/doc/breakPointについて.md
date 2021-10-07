@@ -1,0 +1,4 @@
+## breakPointについて
+themeで設定されている。
+default ThemeのbreakPointのオブジェクトを確認。
+breakPointのように画面の環境に応じてスタイルを返る機能のことをメディアクエリという。
