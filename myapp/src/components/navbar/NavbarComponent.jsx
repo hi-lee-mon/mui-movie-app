@@ -26,7 +26,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (value === 0) history.push("/");
-    if (value === 1) history.push("/TvSeries");
+    if (value === 1) history.push("/TVSeries");
     if (value === 2) history.push("/Trending");
   }, [value]);
   return (
@@ -45,6 +45,7 @@ export const Navbar = () => {
 
           <Tabs
             textColor="inherit"
+            // valueにタブの値をマッピングすることでDOM上でハイライトを実現
             value={value}
             // 第二引数でtabの番号を取得
             onChange={(e, i) => setValue(i)}

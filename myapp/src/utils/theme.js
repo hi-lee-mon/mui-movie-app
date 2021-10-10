@@ -6,10 +6,10 @@ export const theme = createTheme({
       main: "#14213d",
     },
     secondary: {
-      main: "#14213d",
+      main: "#A22032",
     },
     common: {
-      drawer: "#A22032",
+      drawer: "#14213d",
     },
   },
 });
