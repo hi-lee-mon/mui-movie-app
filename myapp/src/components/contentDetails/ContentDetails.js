@@ -2,8 +2,11 @@ import React from "react";
 import { Button } from "@mui/material";
 import "../../index.css";
 import { img500x500 } from "../../utils/imageLink";
+import AppModal from "./modal/AppModal";
 
 const ContentDetails = ({ movie }) => {
+  const movieId = movie?.id;
+
   return (
     <div class="movie_card" id="bright">
       <div class="info_section">
@@ -29,11 +32,13 @@ const ContentDetails = ({ movie }) => {
           }}
         >
           <div style={{ margin: "5px" }}>
-            <li>
-              <Button variant="contained" color="secondary">
-                Watch Trailer
-              </Button>
-            </li>
+            <AppModal id={movieId}>
+              <li>
+                <Button variant="contained" color="secondary">
+                  Watch Trailer
+                </Button>
+              </li>
+            </AppModal>
           </div>
         </div>
       </div>

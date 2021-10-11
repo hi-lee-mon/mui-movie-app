@@ -6,7 +6,7 @@ import { AppPagination } from "../../pagination/AppPagination";
 import Genres from "../../genres/Genres";
 import { Box } from "@mui/system";
 import ErrorComponent from "../../errors/ErrorComponent";
-
+import { genresIds } from "../../../utils/genresIds";
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -15,13 +15,14 @@ const Movies = () => {
   const [isErr, setIsErr] = useState(false);
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
-  console.log(selectedGenres);
+
+  const genreIds = genresIds(selectedGenres);
 
   //Fetch Movies
   const fetchMovies = async () => {
     try {
       const { data } = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=true&page=${page}&with_genres=${genreIds}`
       );
       setMovies(data?.results);
       setLoading(false);
@@ -34,7 +35,7 @@ const Movies = () => {
 
   useEffect(() => {
     fetchMovies();
-  }, [page]);
+  }, [page, selectedGenres]);
 
   return (
     <>
