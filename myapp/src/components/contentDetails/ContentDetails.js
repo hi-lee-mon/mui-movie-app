@@ -33,11 +33,11 @@ const ContentDetails = ({ movie }) => {
         >
           <div style={{ margin: "5px" }}>
             <AppModal id={movieId}>
-              <li>
+              <div>
                 <Button variant="contained" color="secondary">
                   Watch Trailer
                 </Button>
-              </li>
+              </div>
             </AppModal>
           </div>
         </div>
